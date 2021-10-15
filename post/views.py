@@ -10,7 +10,7 @@ class Posts(generics.ListAPIView):
     def get_queryset(self):
         requestType = self.request.query_params.get('for')
         if requestType == 'index':
-            return PostItem.objects.filter(is_active=True)[:5]
+            return PostItem.objects.filter(is_active=True)[:8]
         if requestType == 'all':
             return PostItem.objects.filter(is_active=True)
 

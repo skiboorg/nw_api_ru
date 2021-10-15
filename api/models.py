@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django_random_queryset import RandomManager
 
 class Banner(models.Model):
     order = models.IntegerField(default=10)
@@ -24,12 +25,16 @@ class SocialItem(models.Model):
     logo = models.ImageField( upload_to='images/social/', blank=True, null=True)
     name = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    url = models.CharField(max_length=255, blank=True, null=True)
-    type = models.CharField(max_length=255, blank=True, null=True)
+    url_youtube = models.CharField('Ссылка ютуб',max_length=255, blank=True, null=True)
+    url_twitch = models.CharField('Ссылка твич',max_length=255, blank=True, null=True)
+
+    objects = RandomManager()
 
     class Meta:
         ordering = ('order',)
 
+    def __str__(self):
+        return f'{self.order} | {self.name}'
 
 class Feedback(models.Model):
     user = models.CharField(max_length=255, blank=True, null=True)

@@ -159,4 +159,4 @@ class GetFaq(generics.ListAPIView):
 
 class GetSocial(generics.ListAPIView):
     serializer_class = SocialItemSerializer
-    queryset = SocialItem.objects.all()
+    queryset = SocialItem.objects.all().random(3)

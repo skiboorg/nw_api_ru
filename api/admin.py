@@ -8,8 +8,8 @@ class FeedbackAdmin(admin.ModelAdmin):
     class Meta:
         model = Feedback
 
-admin.site.register(Texts)
-admin.site.register(Banner)
+#admin.site.register(Texts)
+#admin.site.register(Banner)
 admin.site.register(Faq)
 admin.site.register(SocialItem)
-admin.site.register(Feedback,FeedbackAdmin)
+#admin.site.register(Feedback,FeedbackAdmin)
